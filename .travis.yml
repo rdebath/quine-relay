@@ -1,4 +1,7 @@
 ---
+sudo: required
+services:
+- docker
 language: ruby
 rvm:
 - 2.1.0
@@ -11,11 +14,6 @@ before_install:
 - sudo apt-get remove postgresql-common -y --purge
 - sudo apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
   dist-upgrade
-- sudo add-apt-repository ppa:ecere-team/ppa -y
-- sudo add-apt-repository ppa:directhex/ppa -y
-- sudo add-apt-repository ppa:staticfloat/juliareleases -y
-- sudo add-apt-repository ppa:staticfloat/julia-deps -y
-- sudo add-apt-repository ppa:octave/stable -y
 - sudo apt-get update
 - sudo apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
   dist-upgrade
@@ -31,19 +29,19 @@ before_install:
 - 'travis_retry sudo apt-get install bsdgames           # 10 / 92'
 - 'travis_retry sudo apt-get install cduce              # 11 / 92'
 - 'travis_retry sudo apt-get install clisp              # 12 / 92'
-- 'travis_retry sudo apt-get install clojure            # 13 / 92'
+- 'travis_retry sudo apt-get install clojure1.6         # 13 / 92'
 - 'travis_retry sudo apt-get install cmake              # 14 / 92'
 - 'travis_retry sudo apt-get install coffeescript       # 15 / 92'
 - 'travis_retry sudo apt-get install dc                 # 16 / 92'
 - 'travis_retry sudo apt-get install ecere-sdk          # 17 / 92'
-- 'travis_retry sudo apt-get install emacs23            # 18 / 92'
+- 'travis_retry sudo apt-get install emacs24            # 18 / 92'
 - 'travis_retry sudo apt-get install erlang             # 19 / 92'
 - 'travis_retry sudo apt-get install f2c                # 20 / 92'
 - 'travis_retry sudo apt-get install falconpl           # 21 / 92'
 - 'travis_retry sudo apt-get install fp-compiler        # 22 / 92'
 - 'travis_retry sudo apt-get install fsharp             # 23 / 92'
 - 'travis_retry sudo apt-get install g++                # 24 / 92'
-- 'travis_retry sudo apt-get install gambas2-script     # 25 / 92'
+- 'travis_retry sudo apt-get install gambas3-script     # 25 / 92'
 - 'travis_retry sudo apt-get install gap                # 26 / 92'
 - 'travis_retry sudo apt-get install gauche             # 27 / 92'
 - 'travis_retry sudo apt-get install gawk               # 28 / 92'
