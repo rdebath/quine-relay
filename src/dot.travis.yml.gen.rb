@@ -12,7 +12,7 @@ yaml = {}
 yaml["sudo"] = "required"
 yaml["services"] = ["docker"]
 yaml["language"] = "ruby"
-yaml["rvm"] = ["2.1.0"]
+yaml["rvm"] = ["2.2.0"]
 yaml["env"] = ["PATH=/usr/games:$PATH"]
 yaml["before_install"] = [
   "sudo service postgresql stop",
