@@ -12,21 +12,10 @@ yaml = {}
 yaml["sudo"] = "required"
 yaml["services"] = ["docker"]
 yaml["language"] = "ruby"
-yaml["rvm"] = ["2.2.0"]
-yaml["env"] = ["PATH=/usr/games:$PATH"]
 yaml["before_install"] = [
-  "sudo apt-get update",
-  'sudo apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade',
+  "sudo docker build -t quine-relay .",
+  "sudo docker run -t quine-relay"
 ]
-apts = [*apts.flatten.compact.uniq, *other_packages].sort
-apt_width = apts.map {|apt| apt.size }.max
-apts.each_with_index do |apt, i|
-  yaml["before_install"] << "travis_retry sudo apt-get install #{ apt }#{ " " * (apt_width - apt.size) } # #{ "%#{ apts.size.to_s.size }d" % (i + 1) } / #{ apts.size }"
-end
-yaml["before_script"] = [
-  "make -C vendor/",
-]
-yaml["script"] = ["make CC=tcc"]
 
 
 File.write("../.travis.yml", YAML.dump(yaml))
