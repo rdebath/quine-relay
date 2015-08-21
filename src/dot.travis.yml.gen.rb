@@ -15,11 +15,6 @@ yaml["language"] = "ruby"
 yaml["rvm"] = ["2.2.0"]
 yaml["env"] = ["PATH=/usr/games:$PATH"]
 yaml["before_install"] = [
-  "sudo service postgresql stop",
-  "sudo service mysql stop",
-  "sudo apt-get update",
-  "sudo apt-get remove postgresql-common -y --purge",
-  'sudo apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade',
   "sudo apt-get update",
   'sudo apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade',
 ]
